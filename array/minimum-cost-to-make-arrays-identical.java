@@ -13,6 +13,6 @@ class Solution {
         if(arr.length == 1){
             return res;
         }
-        return Math.min(res+2,res2);
+        return Math.min(res+k,res2);
     }
 }
