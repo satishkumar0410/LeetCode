@@ -8,6 +8,11 @@ class Solution {
             return 0;
             }
         }
+        for(int i = 0; i < Math.max(arr.length,brr.length);i++){
+        if(arr[i] == -brr[i]){
+            return Math.abs(2*arr[i]);
+            }
+        }
         for(int i=0; i<Math.max(arr.length,brr.length);i++){
             res+= Math.abs(arr[i]-brr[i]);
         }
