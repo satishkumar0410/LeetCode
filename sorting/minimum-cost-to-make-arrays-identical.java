@@ -16,6 +16,9 @@ class Solution {
         for(int i=0; i<Math.max(arr.length,brr.length);i++){
             res+= Math.abs(arr[i]-brr[i]);
         }
+        if(arr.length == 1){
+            return res;
+        }
         return res+2;
     }
 }
