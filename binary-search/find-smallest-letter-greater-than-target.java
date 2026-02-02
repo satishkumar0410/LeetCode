@@ -3,7 +3,7 @@ class Solution {
        int l = 0;
        int e = letters.length-1;
        while(l<=e){
-        int mid = l+e/2;
+        int mid = (l+e)/2;
         if(letters[mid] <= target){
             l = mid+1;
         }
