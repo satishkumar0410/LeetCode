@@ -8,7 +8,7 @@ class Solution {
             return 0;
         }
         for(int i = 0; i < nums.length; i++){
-            while(nums[i]>nums[j]*k){
+            while((long)nums[i]>(long)nums[j]*k){
                 j++;
             }
             removecount = Math.max(removecount,i-j+1);
