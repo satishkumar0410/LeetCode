@@ -7,7 +7,9 @@ class Solution {
             res = (res*10)+lastdigit;
             x = x/10;
         }
-        
+        if(res < INTEGER.MIN_Value || res > INTEGER.MAX_Value){
+            return 0;
+        }
         return (int) res;
     }
 }
