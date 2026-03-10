@@ -8,7 +8,7 @@ class Solution {
         for (int n : map) {
             if (!map.contains(n - 1)) {
                 int l = 1;
-                while (map.contains(n + length)) {
+                while (map.contains(n + l)) {
                     l++;
                 }
                 count = Math.max(count, l);
