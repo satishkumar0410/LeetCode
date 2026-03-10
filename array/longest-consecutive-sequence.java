@@ -5,7 +5,7 @@ class Solution {
             map.add(n);
         }
         int count = 0;
-        for (int n : numSet) {
+        for (int n : map) {
             if (!map.contains(n - 1)) {
                 int l = 1;
                 while (map.contains(n + length)) {
