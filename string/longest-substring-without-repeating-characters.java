@@ -1,21 +1,21 @@
 class Solution {
     public int lengthOfLongestSubstring(String s) {
+        HashSet<Character> map = new HashSet<>();
         int n = s.length();
-        int res = 0;
-        for (int i = 0; i < n; i++) {
-            HashSet<Character> set = new HashSet<>();
-            int count = 0;
-            for (int j = i; j < n; j++) {
-                if (!set.contains(s.charAt(j))) {
-                    set.add(s.charAt(j));
-                    count++;
-                    res = Math.max(res, count);
-                } else {
-                    break;
-                }
+        int count = 0;
+        int i = 0; //left 
+        int j = 0; //right
+        while (j < n) {
+            if (!map.contains(s.charAt(j))) {
+                map.add(s.charAt(j)); // add chesi window start chestunam
+                count = Math.max(count, j - i + 1); //window size kanipedtunam
+                j++;
+            } else {
+                map.remove(s.charAt(i)); //already unte tisi dobbutunam
+                i++;
             }
         }
         
-        return res;
+        return count; //idi mana window size
     }
 }
