@@ -1,6 +1,6 @@
 class Solution {
        public int longestSubarray(int[] A) {
-        int i = 0,
+        int i = 0;
         int j = 0;
         int k = 1;
         for (j = 0; j < A.length; ++j) {
