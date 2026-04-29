@@ -1,4 +1,3 @@
-java
 class Solution {
     public int maxVowels(String s, int k) {
         int[] chars = new int[128];
