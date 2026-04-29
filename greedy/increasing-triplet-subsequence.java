@@ -2,19 +2,18 @@ class Solution {
     public boolean increasingTriplet(int[] nums) {
         int n = nums.length;
         if (n < 3) return false;
-        int[] minLeft = new int[n];
-        minLeft[0] = nums[0];
+        int[] chinnodu  = new int[n];
+        chinnodu[0] = nums[0];
         for (int i = 1; i < n; i++) {
-            minLeft[i] = Math.min(minLeft[i - 1], nums[i]);
+            chinnodu[i] = Math.min(chinnodu[i - 1], nums[i]);
         }
-
-        int[] maxRight = new int[n];
-        maxRight[n - 1] = nums[n - 1];
+        int[] peddodu = new int[n];
+        peddodu[n - 1] = nums[n - 1];
         for (int i = n - 2; i >= 0; i--) {
-            maxRight[i] = Math.max(maxRight[i + 1], nums[i]);
+            peddodu[i] = Math.max(peddodu[i + 1], nums[i]);
         }
         for (int i = 1; i < n - 1; i++) {
-            if (nums[i] > minLeft[i] && nums[i] < maxRight[i]) {
+            if (nums[i] > chinnodu[i] && nums[i] < peddodu[i]) {
                 return true;
             }
         }
