@@ -1,14 +1,13 @@
 class Solution {
     public List<List<Integer>> findDifference(int[] nums1, int[] nums2) {
-        List<List<Integer>> ans = new ArrayList<>();
-        ans.add(new ArrayList<>());
-        ans.add(new ArrayList<>());
-        HashSet<Integer> set1 = new HashSet<>();
-        HashSet<Integer> set2 = new HashSet<>();
-        for (int i : nums1) set1.add(i);
-        for (int i : nums2) set2.add(i);
-        for(int i : set1) if(!set2.contains(i)) ans.get(0).add(i);
-        for(int i : set2) if(!set1.contains(i)) ans.get(1).add(i);
-        return ans;
+        Set<Integer> donga = new HashSet<>();
+        Set<Integer> puka = new HashSet<>();
+        for (int n : nums1) donga.add(n);
+        for (int n : nums2) puka.add(n);
+        Set<Integer> lanja = new HashSet<>(donga); //compare cheskondi inko set chesam
+        Set<Integer> munda = new HashSet<>(puka);
+        lanja.removeAll(puka); // common saruku ni tisi dengudi from nums2 in nums1
+        munda.removeAll(donga); // common saruku ni tisi dengudi from nums1 in nums2
+        return Arrays.asList(new ArrayList<>(lanja), new ArrayList<>(munda)); //returning them just as a list component 
     }
 }
