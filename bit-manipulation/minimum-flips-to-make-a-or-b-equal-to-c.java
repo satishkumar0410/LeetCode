@@ -1,24 +1,8 @@
 class Solution {
     public int minFlips(int a, int b, int c) {
-        int ennisarludengali = 0;
-        while(a > 0 || b > 0 || c > 0){
-            if((c&1) ==1){
-                if((a&1)==0 && (b&1)==0){
-                    ennisarludengali++;
-                }
-            }
-                else {
-                    if((a&1)==1){
-                        ennisarludengali++;
-                    }
-                     if((b&1)==1){
-                        ennisarludengali++;
-                }
-            }
-            a >>=1;
-            b >>=1;
-            c >>=1;
-        }
-        return ennisarludengali;
+        int cbitone = (c & ~(a|b));
+        int abitone = (a& ~c);
+        int bbitone = (b& ~c);
+        return Integer.bitCount(cbitone) + Integer.bitCount(abitone) + Integer.bitCount(bbitone);
     }
 }
