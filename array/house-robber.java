@@ -1,21 +1,13 @@
-import java.util.HashMap;
-
 class Solution {
-    private HashMap<Integer, Integer> cache = new HashMap<>();
-
     public int rob(int[] nums) {
-        return solve(nums, nums.length);
-    }
+         int [] dp = new int [100];
+         dp[0] = nums[0];
+         dp[1] = Math.max(nums[0],nums[1]);
+         int n = nums.length;
 
-    private int solve(int[] nums, int i) {
-        if (i <= 0) {
-            return 0;
-        }
-
-        if (cache.containsKey(i)) {
-            return cache.get(i);
-        }
-        cache.put(i, Math.max(nums[i - 1] + solve(nums, i - 2), solve(nums, i - 1)));
-        return cache.get(i);
+         for(int i = 2; i < n; i++){
+            dp[i] = Math.max(nums[i]+dp[i-2],dp[i-1]);
+         }
+         return dp[n-1];
     }
 }
